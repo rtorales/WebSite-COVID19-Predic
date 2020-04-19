@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="display-4">Proyección de contagios COVID19</h1>
+    <h2>Tasa de Infectados por Paises de la región</h2>
+    <p class="lead">Fuente: <a href="https://github.com/owid/covid-19-data" target="_blank"> OWID - COVID 19 </a></p>
+    <hr class="my-4">
+    <!--Gráfico-->
+    <div id="chart_div" >
+        
+    </div>
+    <br>
+    <h1>Datos Generados</h1>
+    <div class="" align="center">
+        {% for table in tables %}
+            {{ table|safe }}
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock%}

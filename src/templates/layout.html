@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+        <meta charset="UTF-8">
+        <title>Datos Estadísticos COVID19</title>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+
+                        var data = new google.visualization.DataTable();
+                        data.addColumn('string', 'Fecha');
+                        data.addColumn('number', 'Paraguay');
+                        data.addColumn('number', 'Argentina');
+                        data.addColumn('number', 'Brasil');
+                        data.addColumn('number', 'Uruguay');
+
+                        data.addRows([['2020-04-01', 69.0, 966.0, 5717.0, 338.0]
+                                , ['2020-04-02', 69.0, 1133.0, 6836.0, 338.0]
+                                , ['2020-04-03', 77.0, 1133.0, 7910.0, 369.0]
+                                , ['2020-04-04', 96.0, 1265.0, 9056.0, 386.0]
+                                , ['2020-04-05', 104.0, 1451.0, 10278.0, 400.0]
+                                , ['2020-04-06', 113.0, 1554.0, 11130.0, 406.0]
+                                , ['2020-04-07', 113.0, 1628.0, 12056.0, 415.0]
+                                , ['2020-04-08', 115.0, 1715.0, 13717.0, 424.0]
+                                , ['2020-04-09', 124.0, 1795.0, 15927.0, 456.0]
+                                , ['2020-04-10', 129.0, 1894.0, 17857.0, 473.0]
+                                , ['2020-04-11', 133.0, 1975.0, 19638.0, 494.0]
+                                , ['2020-04-12', 134.0, 2137.0, 20727.0, 501.0]
+                                , ['2020-04-13', 147.0, 2203.0, 22169.0, 512.0]
+                                , ['2020-04-14', 159.0, 2272.0, 23430.0, 521.0]
+                                , ['2020-04-15', 161.0, 2432.0, 25262.0, 533.0]
+                                , ['2020-04-16', 174.0, 2432.0, 28320.0, 539.0]
+                                , ['2020-04-17', 174.0, 2560.0, 30425.0, 552.0]
+                                , ['2020-04-18', 202.0, 2658.0, 33682.0, 570.0]
+                                , ['2020-04-19', 202.0, 2828.0, 36599.0, 588.0]
+                                , ['2020-04-20', 214.12284141096072, 2995.083241806462, 40389.28302663213
+                                , 605.5273597667303]
+                                , ['2020-04-21', 226.9732238312051, 3172.0380570544216, 44572.09714487812
+                                , 623.5771826973934]
+                                , ['2020-04-22', 240.59480995516643, 3359.447675762386, 49188.093846144
+                                , 642.1650426012392]
+                                , ['2020-04-23', 255.03388285312045, 3557.929786209898, 54282.13459090282
+                                , 661.3069775183984]
+                                , ['2020-04-24', 270.33950323059526, 3768.1385707925433, 59903.72680351135
+                                , 681.019503557878]
+                                , ['2020-04-25', 286.56367612555766, 3990.766862158875, 66107.5050197292
+                                , 701.3196291480464]
+                                , ['2020-04-26', 303.76152760977567, 4226.548426735716, 72953.76186306584
+                                , 722.224869711903]
+                                , ['2020-04-27', 321.9914920947483, 4476.260383168179, 80509.0340103524
+                                , 743.753262779795]
+                                , ['2020-04-28', 341.31551087862573, 4740.725763645398, 88846.74884135838
+                                , 765.9233835526198]
+                                , ['2020-04-29', 361.7992426087377, 5020.816226553915, 98047.9380570432
+                                , 788.7543609289432]
+                                , ['2020-04-30', 383.5122863748339, 5317.45492939943, 108202.0252018802
+                                , 812.2658940098601]]);
+
+                        var options = {
+                                title: 'Proyección de Contagios',
+                                hAxis: { title: 'Fecha', titleTextStyle: { color: '#333' } },
+                                vAxis: { minValue: 0 }
+                        };
+                        var chart = new google.visualization.AreaChart(document.getElementById('chart_div'));
+                        chart.draw(data, options);
+                        //var chart = new google.charts.Line(document.getElementById('chart_div'));
+                        //chart.draw(data, google.charts.Line.convertOptions(options));
+                }
+        </script>
+
+        <!-- BOOTSTRAP 4 CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+                integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+                crossorigin="anonymous">
+        <!-- CUSTOM CSS -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+
+<body>
+
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="{{ url_for('home') }}">Gráficos COVID19</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active">
+                                        <a class="nav-link" href="{{ url_for('home') }}">Inicio</a>
+                                </li>
+                                <li class="nav-item">
+                                        <a class="nav-link" href="{{ url_for('informacion') }}">información</a>
+                                </li>
+                        </ul>
+                </div>
+        </nav>
+
+
+        <div class="container p-4">
+        {% block content %}
+        {% endblock%}
+
+</div>
+
+<!-- SCRIPTS -->
+<script src="{{url_for('static', filename='js/main.js')}}"></script>
+</body>
+
+</html>
